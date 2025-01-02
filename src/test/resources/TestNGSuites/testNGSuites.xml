@@ -1,7 +1,12 @@
 <suite name="Cucumber Suite" parallel="methods" thread-count="10">
-    <test name="Cucumber Tests">
-        <classes>
-            <class name="StepDefinitions.TestRunner"/>
-        </classes>
-    </test>
-</suite>
+       <listeners>
+            <listener class-name="listeners.TestNGListeners"></listener>
+        </listeners>
+
+        <test name="Cucumber Tests">
+            <parameter name="browser" value="firefox"/>
+            <classes>
+                <class name="runners.TestRunner"/>
+            </classes>
+        </test>
+    </suite>
