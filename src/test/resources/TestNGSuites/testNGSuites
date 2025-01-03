@@ -4,9 +4,12 @@
         </listeners>
 
         <test name="Cucumber Tests">
-            <parameter name="browser" value="firefox"/>
-            <classes>
-                <class name="runners.TestRunner"/>
-            </classes>
-        </test>
-    </suite>
+
+<!--            <parameter name="browser" value="firefox"/> -->
+           <classes>
+               <class name="runners.TestRunner2"/>
+           </classes>
+       </test>
+   </suite>
+
+
