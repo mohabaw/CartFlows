@@ -4,6 +4,8 @@ package utilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.safari.SafariOptions;
+
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -17,6 +19,7 @@ public class ConfigReader {
     private ChromeOptions chromeOptions = new ChromeOptions();
     private FirefoxOptions fireFoxOptions = new FirefoxOptions();
     private EdgeOptions edgeOptions = new EdgeOptions();
+    private SafariOptions safariOptions = new SafariOptions();
 
     public ChromeOptions getChromeOptions() {
         return chromeOptions;
@@ -29,7 +32,9 @@ public class ConfigReader {
     public EdgeOptions getEdgeOptions() {
         return edgeOptions;
     }
-
+    public SafariOptions getSafariOptions() {
+        return safariOptions;
+    }
 
     public void isHeadless() {
         Properties properties = new Properties();
