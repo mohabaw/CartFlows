@@ -6,26 +6,29 @@ Feature: Login - Multibrowser
   @MultibrowserLogin
   Scenario: Scenario 1 - Positive test - chrome
     Given "chrome" is used
-    When user is on login page
-    And user enters a "error_user" and a "secret_sauce"
-    And clicks on login button
-    Then user is navigated to the home page
+    When user navigates to SAUCE_DEMO website
+    And user is on login page
+    And user enters "error_user" and "secret_sauce"
+    And user clicks on login button
+    Then user is navigated to products page
 
   @MultibrowserLogin
   Scenario: Scenario 2 - Positive test - firefox
     Given "firefox" is used
-    When user is on login page
-    And user enters a "error_user" and a "secret_sauce"
-    And clicks on login button
-    Then user is navigated to the home page
+    When user navigates to SAUCE_DEMO website
+    And user is on login page
+    And user enters "error_user" and "secret_sauce"
+    And user clicks on login button
+    Then user is navigated to products page
 
   @MultibrowserLogin
-  Scenario Outline: Scenario - Positive tests
+  Scenario Outline: Scenari When user is on login pageo - Positive tests
     Given "<browser>" is used
-    When user is on login page
-    And user enters a "<username>" and a "<password>"
-    And clicks on login button
-    Then user is navigated to the home page
+    When user navigates to SAUCE_DEMO website
+    And user is on login page
+    And user enters "<username>" and "<password>"
+    And user clicks on login button
+    Then user is navigated to products page
 
 
     Examples:

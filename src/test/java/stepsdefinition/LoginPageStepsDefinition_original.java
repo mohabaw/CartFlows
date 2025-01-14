@@ -1,4 +1,4 @@
-package stepdefinitions;
+/*package stepsdefinition;
 
 
 import io.cucumber.java.en.And;
@@ -13,18 +13,16 @@ import pagefactory.LoginPage;
 import pagefactory.ProductsPage;
 import utilities.DriverFactory;
 
-import java.time.Duration;
 
+public class LoginPageStepsDefinition_original {
 
-public class LoginPageStepDefinitions {
-
-    private static final Logger logger = LogManager.getLogger(LoginPageStepDefinitions.class);
+    private static final Logger logger = LogManager.getLogger(LoginPageStepsDefinition_original.class);
 
     private WebDriver driver;
     private LoginPage loginPage;
     private ProductsPage productsPage;
 
-    public LoginPageStepDefinitions() {
+    public LoginPageStepsDefinition_original() {
         this.driver = DriverFactory.getDriver(); // Access ThreadLocal WebDriver
     }
 
@@ -35,8 +33,8 @@ public class LoginPageStepDefinitions {
 
         String browser = System.getProperty("Browser", localBrowser); // In cas we run from Jenkins or from
         // command line, the selected browser will be used. Else, it's the browser set in feature file (localBrowser)
-        // will be used. Use with LoginFromSystemProperties.feature for example, cmd line
-        // mvn clean test -Dtest=TestRunner2 -DBrowser=Edge
+        // will be used. Use with ForTestNGSuite.feature for example, cmd line
+        // mvn clean test -Dtest=TestRunnerForTestNGSuite -DBrowser=Edge
         System.out.println("THE USED BROWSER IS : " + browser);
         DriverFactory factory = new DriverFactory(browser);
         factory.initializeDriver(browser);
@@ -46,9 +44,9 @@ public class LoginPageStepDefinitions {
         productsPage = new ProductsPage(driver);
         logger.info("Setting Up the driver: {}", driver);
         // logger.debug("Setting Up the driver: {}", driver);
-       // logger.error("Setting Up the driver: {}", driver);
-       // logger.warn("Setting Up the driver: {}", driver);
-       // logger.trace("Setting Up the driver: {}", driver);
+        // logger.error("Setting Up the driver: {}", driver);
+        // logger.warn("Setting Up the driver: {}", driver);
+        // logger.trace("Setting Up the driver: {}", driver);
     }
 
     @When("user is on login page")
@@ -59,8 +57,6 @@ public class LoginPageStepDefinitions {
         loginPage.navigateToLoginPage(driver);
         Assert.assertTrue(loginPage.isLoginPage());
     }
-
-
 
     @And("user enters a {string} and a {string}")
     public void UserEntersUsernameAndPassword(String username, String password) {
@@ -80,4 +76,6 @@ public class LoginPageStepDefinitions {
         productsPage.getPageTitle();
     }
 }
+
+ */
 

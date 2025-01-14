@@ -4,21 +4,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
+import static constants.Constants.*;
 
 public class LoginPage {
 
-    @FindBy(id = "user-name")
+    @FindBy(id = userNameFieldId)
     WebElement txt_username;
 
-    @FindBy(id = "password")
+    @FindBy(id = passwordFieldId)
     WebElement txt_password;
 
-    @FindBy(id = "login-button")
+    @FindBy(id = loginButtonId)
     WebElement btn_login;
 
     WebDriver driver;
-    String URL = "https://www.saucedemo.com/";
+
 
     public LoginPage (WebDriver driver) {
         this.driver = driver;
@@ -38,14 +39,13 @@ public class LoginPage {
     }
 
     public boolean isLoginPage() {
-        boolean status = btn_login.isDisplayed();
 
-        return status;
+        return btn_login.isDisplayed();
     }
 
     public void navigateToLoginPage(WebDriver driver) {
         this.driver = driver;
-        driver.get(URL);
+        driver.get(sauceDemoURL);
     }
 }
 

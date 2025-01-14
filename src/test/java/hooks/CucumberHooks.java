@@ -10,11 +10,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import utilities.DriverFactory;
 
-import java.io.IOException;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.IOException;
+
 
 public class CucumberHooks {
     private WebDriver driver;
@@ -35,8 +33,8 @@ public class CucumberHooks {
 
     private static final String SCREENSHOT_FOLDER = "target/screenshots"; // Folder for storing screenshots
 
-    // Clean up the screenshot folder before each test run
- /*   @Before
+  /*  // Clean up the screenshot folder before each test run
+    @Before
     public void cleanScreenshotFolder() {
         try {
             FileUtils.cleanDirectory(new File(SCREENSHOT_FOLDER));
@@ -52,13 +50,15 @@ public class CucumberHooks {
         if (driver != null) {
             TakesScreenshot ts = (TakesScreenshot) driver;
             byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+            String stepName = scenario.getName().replaceAll(" ", "_");
+
             String exampleData = getExampleData(scenario);
-            String fileName = "target/screenshots/" + scenario.getName().replaceAll(" ", "_")
+            String fileName = "target/screenshots/" + stepName
                     + (exampleData.isEmpty() ? "" : "_" + exampleData.replaceAll("[\\[\\]]", "").replaceAll(", ", "_")) + ".png";
+
             try {
                 FileUtils.writeByteArrayToFile(new File(fileName), screenshot);
                 scenario.attach(screenshot, "image/png", "Screenshot: " + fileName);
-              //  System.out.println("Screenshot taken and attached for step: " + scenario.getName());
             } catch (IOException e) {
                 e.printStackTrace();
             }

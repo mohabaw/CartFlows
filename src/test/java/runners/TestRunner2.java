@@ -1,29 +1,33 @@
 package runners;
 
 
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
+// Runs 2 features in parallel, without using parameters
+// mvn clean test -Dtest=TestRunner2
+
 //@Listeners({TestNGListeners.class})
 @CucumberOptions(
         features = "src/test/resources/features", //Path of the feature files
-        glue = {"stepdefinitions", "hooks","base"}, // Path of Java classes Package that contain the step definitions
-        //glue = {"stepdefinitions"} since the stepdefinitions.java is in the same place than TestRunner1.java
-        tags = "@LoginSystemProperties", // Tags qu'on retrouve sur les scénario dans les fichiers .feature
-        plugin = {"pretty", "html:target/reports/execution_report.html"} //Definition of a report file
+        glue = {"stepsdefinition", "hooks","base"}, // Path of Java classes Package that contain the step definitions
+        //glue = {"stepsdefinition"} since the stepsdefinition.java is in the same place than TestRunner1.java
+
+       tags = "@E2E or @MultibrowserLogin ", // Tags in the .feature files
+
+        plugin = {"pretty", "html:target/reports/execution_report_testRunner2.html"} //Definition of a report file
 )
 
 
 public class TestRunner2 extends AbstractTestNGCucumberTests {
-    // @DataProvider: permet d'exécuter les scénarios ou les fichiers .feature en parallèle.
+    // @DataProvider: allows to execute scenarios or .feature files in parallel
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
     }
-
-
 
 
     // To be used with listeners instead of the testNG .xml file

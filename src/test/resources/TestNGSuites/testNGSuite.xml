@@ -1,0 +1,35 @@
+<!--- WORKS ONLY IF IN THE TESTRUNNER CLASS THERE IS A METHOD ANNOTATED
+@BeforeClass(alwaysRun = true) THAT RETRIEVES INFORMATION AND PARAMETERS FROM THIS TESTNG XML FILE -->
+<suite name="Cucumber Suite" parallel="tests" thread-count="10">
+    <!--- parallel: Could also take the value "methods"   -->
+    <!--- thread-count: it controls only the number of tests run in the suite at once    -->
+
+    <!---   <listeners>
+           <listener class-name="listeners.TestNGListeners"></listener>
+       </listeners>-->
+
+      <test name="Cucumber Tests - TestRunner with chrome">
+          <parameter name="Browser" value="chrome"/>
+          <classes>
+              <class name="runners.TestRunnerForTestNGSuite"/>
+          </classes>
+      </test>
+
+    <test name="Cucumber Tests - TestRunner with firefox">
+        <parameter name="Browser" value="firefox"/>
+        <classes>
+            <class name="runners.TestRunnerForTestNGSuite"/>
+        </classes>
+    </test>
+
+    <!--- THERE IS A PROBLEM RUNNING WITH EDGE FROM JENKINS !!!!!!
+      <test name="Cucumber Tests - TestRunnerForTestNGSuite with edge">
+          <parameter name="Browser" value="edge"/>
+          <classes>
+              <class name="runners.TestRunnerForTestNGXmlFileorTestNGXmlFile"/>
+          </classes>
+      </test> -->
+
+    </suite>
+
+
